@@ -1,0 +1,26 @@
+
+menuconfig CAMEO
+	tristate "Cameo"
+	depends on NET
+
+if CAMEO
+
+config CAMEO_CT_NEW
+	depends on NF_CONNTRACK
+	tristate "Cameo NF_CONNTRACK"
+
+config CAMEO_TP_NEW
+	depends on NF_CONNTRACK
+	tristate "Cameo Tuple List"
+
+config CAMEO_TCP_RELY
+	depends on CAMEO_TP_NEW
+	bool "Cameo TCP rely"
+
+config CAMEO_KLOG_ENTRY
+	bool "Cameo Kernel Log Entry"
+
+config CAMEO_LOG_PKT
+	bool "Cameo Log Dropped Packet"
+
+endif
